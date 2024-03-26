@@ -32,12 +32,12 @@ function App() {
 
     { !details && <form onSubmit={handleFormSubmit} className={styles.form}>
       
-      <label>Username:
-      <input onChange={(e)=>{setUserName(e.target.value)}} type='text' required placeholder='username'/>
+      <label>Username
+      <input onChange={(e)=>{setUserName(e.target.value)}} type='text' required placeholder='username' value={userName}/>
       </label>
 
-      <label>Password:
-      <input onChange={(e)=>{setPassword(e.target.value)}} type='password' required placeholder='password'/>
+      <label>Password
+      <input onChange={(e)=>{setPassword(e.target.value)}} type='password' required placeholder='password' value={password}/>
       </label>
 
       <button style={{width:'max-content'}} type="submit">Submit</button>
