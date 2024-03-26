@@ -1,62 +1,53 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useState, useRef } from "react";
+import { useState } from 'react';
+import styles from './App.module.css'
 
 function App() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [flag, setFlag] = useState(0);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    username === "user" && password === "password" ? setFlag(1) : setFlag(2);
-  };
+  const userNameCheck = "user"
+  const passWordCheck = "password"
+
+  const [details, setDetails] = useState(false)
+  const [incorrect, setIncorrect] = useState(false)
+  const [userName, setUserName] = useState("")
+  const [password, setPassword] = useState("")
+
+  const handleFormSubmit = (e) => {
+
+    e.preventDefault()
+    if(userNameCheck === userName && passWordCheck === password){
+      setDetails(true)
+      setIncorrect(false); 
+    }
+    
+    else{
+      setIncorrect(true)
+    }
+
+  }
+
 
   return (
-    <div className="App">
-      <h1>Login Page</h1>
-      {flag === 0 ? (
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <div>
-            <label htmlFor="username" name="username">
-              Username
-            </label>
-            <input
-              type="text"
-              name="username"
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="password" name="password">
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              required
-            />
-          </div>
+    <><h1>Login Page</h1>
 
-          <button type="submit" name="login">
-            Submit
-          </button>
-        </form>
-      ) : flag === 1 ? (
-        "Welcome, user!"
-      ) : (
-        "Invalid username or password"
-      )}
-    </div>
-  );
+    {incorrect && <p>Invalid username or password</p>}
+
+    { !details && <form onSubmit={handleFormSubmit} className={styles.form}>
+      
+      <label>Username
+      <input onChange={(e)=>{setUserName(e.target.value)}} type='text' name='username' required value={userName}/>
+      </label>
+
+      <label>Password
+      <input onChange={(e)=>{setPassword(e.target.value)}} type='password' name= 'password' required value={password}/>
+      </label>
+
+      <button style={{width:'max-content'}} type="submit" name='login'>Submit</button>
+    </form>}
+
+    {details && <p>Welcome, user</p>}
+
+    </>
+    );
 }
 
 export default App;
