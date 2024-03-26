@@ -3,8 +3,8 @@ import styles from './App.module.css'
 
 function App() {
 
-  const userNameCheck = "testuser"
-  const passWordCheck = "testpass"
+  const userNameCheck = "user"
+  const passWordCheck = "password"
 
   const [details, setDetails] = useState(false)
   const [incorrect, setIncorrect] = useState(false)
