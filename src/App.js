@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import styles from './App.module.css'
 
 function App() {
+
+  const userNameCheck = "bhandariamey"
+  const passWordCheck = "Amey@123"
+
+  const [details, setDetails] = useState(false)
+  const [incorrect, setIncorrect] = useState(false)
+  const [userName, setUserName] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleFormSubmit = (e) => {
+
+    e.preventDefault()
+    if(userNameCheck === userName && passWordCheck === password){
+      setDetails(true)
+    }
+    
+    else{
+      setIncorrect(true)
+    }
+
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <><h1>Login Page</h1>
+
+    {incorrect && <p>Invalid username or password</p>}
+
+    { !details && <form onSubmit={handleFormSubmit} className={styles.form}>
+      
+      <label>Username:
+      <input onChange={(e)=>{setUserName(e.target.value)}} type='text' required placeholder='username'/>
+      </label>
+
+      <label>Password:
+      <input onChange={(e)=>{setPassword(e.target.value)}} type='password' required placeholder='password'/>
+      </label>
+
+      <button style={{width:'max-content'}} type="submit">Submit</button>
+    </form>}
+
+    
+
+    {details && <p>Welcome, user!</p>}
+
+
+
+
+    </>
+    );
 }
 
 export default App;
