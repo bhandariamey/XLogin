@@ -16,6 +16,7 @@ function App() {
     e.preventDefault()
     if(userNameCheck === userName && passWordCheck === password){
       setDetails(true)
+      setIncorrect(false); 
     }
     
     else{
@@ -33,22 +34,17 @@ function App() {
     { !details && <form onSubmit={handleFormSubmit} className={styles.form}>
       
       <label>Username
-      <input onChange={(e)=>{setUserName(e.target.value)}} type='text' required placeholder='username' value={userName}/>
+      <input onChange={(e)=>{setUserName(e.target.value)}} type='text' name='username' required value={userName}/>
       </label>
 
       <label>Password
-      <input onChange={(e)=>{setPassword(e.target.value)}} type='password' required placeholder='password' value={password}/>
+      <input onChange={(e)=>{setPassword(e.target.value)}} type='password' name= 'password' required value={password}/>
       </label>
 
-      <button style={{width:'max-content'}} type="submit">Submit</button>
+      <button style={{width:'max-content'}} type="submit" name='login'>Submit</button>
     </form>}
 
-    
-
     {details && <p>Welcome, user</p>}
-
-
-
 
     </>
     );
