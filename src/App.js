@@ -3,13 +3,13 @@ import styles from './App.module.css'
 
 function App() {
 
-  const userNameCheck = "bhandariamey"
-  const passWordCheck = "Amey@123"
+  const userNameCheck = "testuser"
+  const passWordCheck = "testpass"
 
   const [details, setDetails] = useState(false)
   const [incorrect, setIncorrect] = useState(false)
-  const [userName, setUserName] = useState('')
-  const [password, setPassword] = useState('')
+  const [userName, setUserName] = useState("")
+  const [password, setPassword] = useState("")
 
   const handleFormSubmit = (e) => {
 
@@ -45,7 +45,7 @@ function App() {
 
     
 
-    {details && <p>Welcome, user!</p>}
+    {details && <p>Welcome, user</p>}
 
 
 
