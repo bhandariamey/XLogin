@@ -3,9 +3,7 @@ import styles from './App.module.css'
 
 function App() {
 
-  const userNameCheck = "user"
-  const passWordCheck = "password"
-
+  
   const [details, setDetails] = useState(false)
   const [incorrect, setIncorrect] = useState(false)
   const [userName, setUserName] = useState("")
@@ -14,7 +12,7 @@ function App() {
   const handleFormSubmit = (e) => {
 
     e.preventDefault()
-    if(userNameCheck === userName && passWordCheck === password){
+    if(userName === 'user' && password === 'password'){
       setDetails(true)
       setIncorrect(false); 
     }
@@ -24,7 +22,6 @@ function App() {
     }
 
   }
-
 
   return (
     <><h1>Login Page</h1>
