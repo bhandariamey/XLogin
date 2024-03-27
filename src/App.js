@@ -6,8 +6,8 @@ function App() {
   
   const [details, setDetails] = useState(false)
   const [incorrect, setIncorrect] = useState(false)
-  const [userName, setUserName] = useState("")
-  const [password, setPassword] = useState("")
+  const [userName, setUserName] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleFormSubmit = (e) => {
 
@@ -24,7 +24,8 @@ function App() {
   }
 
   return (
-    <><h1>Login Page</h1>
+    <>
+    <h1>Login Page</h1>
 
     {incorrect && <p>Invalid username or password</p>}
 
@@ -41,7 +42,7 @@ function App() {
       <button style={{width:'max-content'}} type="submit" name='login'>Submit</button>
     </form>}
 
-    {details && <p>Welcome, user</p>}
+    {details && <p>Welcome, {userName}</p>}
 
     </>
     );
