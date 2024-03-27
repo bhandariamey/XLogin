@@ -30,6 +30,7 @@ function App() {
             <input
               onChange={(e) => {
                 setUserName(e.target.value);
+                setIncorrect(false); // Clear incorrect message when user starts typing
               }}
               type="text"
               name="username"
@@ -43,6 +44,7 @@ function App() {
             <input
               onChange={(e) => {
                 setPassword(e.target.value);
+                setIncorrect(false); // Clear incorrect message when user starts typing
               }}
               type="password"
               name="password"
