@@ -4,16 +4,17 @@ import styles from './App.module.css';
 function App() {
   const [details, setDetails] = useState(false);
   const [incorrect, setIncorrect] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (userName === 'user' && password === 'password') {
+    if (username === 'user' && password === 'password') {
       setDetails(true);
       setIncorrect(false);
     } else {
       setIncorrect(true);
+      setDetails(false); // Reset details state on incorrect login attempt
     }
   };
 
@@ -25,30 +26,29 @@ function App() {
 
       {!details && (
         <form onSubmit={handleFormSubmit} className={styles.form}>
-          <label htmlFor='Username'>
+          <label htmlFor='username'>
             Username
             <input
-
-                onChange={(e) => {
-                setUserName(e.target.value);
+              onChange={(e) => {
+                setUsername(e.target.value);
                 setIncorrect(false); // Clear incorrect message when user starts typing
               }}
               id='username'
               type="text"
-              name="Username"
+              name="username"
               required
-              value={userName}
+              value={username}
             />
           </label>
 
-          <label htmlFor='Password'>
+          <label htmlFor='password'>
             Password
             <input
               onChange={(e) => {
                 setPassword(e.target.value);
                 setIncorrect(false); // Clear incorrect message when user starts typing
               }}
-              id='Password'
+              id='password'
               type="password"
               name="password"
               required
@@ -62,7 +62,7 @@ function App() {
         </form>
       )}
 
-      {details && <p>Welcome, {userName}</p>}
+      {details && <p>Welcome, {username}</p>}
     </>
   );
 }
