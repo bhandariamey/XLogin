@@ -26,31 +26,31 @@ function App() {
 
       {!details && (
         <form onSubmit={handleFormSubmit} className={styles.form}>
-          <label htmlFor='username'>
+          <label htmlFor='Username'>
             Username
             <input
               onChange={(e) => {
                 setUsername(e.target.value);
                 setIncorrect(false); // Clear incorrect message when user starts typing
               }}
-              id='username'
+              id='Username'
               type="text"
-              name="username"
+              name="Username"
               required
               value={username}
             />
           </label>
 
-          <label htmlFor='password'>
+          <label htmlFor='Password'>
             Password
             <input
               onChange={(e) => {
                 setPassword(e.target.value);
                 setIncorrect(false); // Clear incorrect message when user starts typing
               }}
-              id='password'
+              id='Password'
               type="password"
-              name="password"
+              name="Password"
               required
               value={password}
             />
