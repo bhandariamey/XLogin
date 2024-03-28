@@ -4,8 +4,8 @@ import styles from './App.module.css';
 function App() {
   const [details, setDetails] = useState(false);
   const [incorrect, setIncorrect] = useState(false);
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -25,27 +25,30 @@ function App() {
 
       {!details && (
         <form onSubmit={handleFormSubmit} className={styles.form}>
-          <label>
+          <label htmlFor='Username'>
             Username
             <input
-              onChange={(e) => {
+
+                onChange={(e) => {
                 setUserName(e.target.value);
                 setIncorrect(false); // Clear incorrect message when user starts typing
               }}
+              id='username'
               type="text"
-              name="username"
+              name="Username"
               required
               value={userName}
             />
           </label>
 
-          <label>
+          <label htmlFor='Password'>
             Password
             <input
               onChange={(e) => {
                 setPassword(e.target.value);
                 setIncorrect(false); // Clear incorrect message when user starts typing
               }}
+              id='Password'
               type="password"
               name="password"
               required
